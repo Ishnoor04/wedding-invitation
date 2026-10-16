@@ -1,0 +1,30 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.venv
+.tmp
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Huge source design files (keep optimized /public/assets)
+public/Rajwant/*.png
+public/Rajwant/*.pdf
+public/Rajwant/*.svg
+public/Rajwant/preview/
+
+# Prefer clean shabad.mp3; ignore long original filename
+public/assets/Laavan*.mp3

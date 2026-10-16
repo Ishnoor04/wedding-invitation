@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Abril Fatface", "Playfair Display", ui-serif, Georgia, serif;
+  --font-playfair: "Playfair Display", ui-serif, Georgia, serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #fdf8f5;
+  --color-cream-deep: #f7efe8;
+  --color-rose: #c17373;
+  --color-rose-deep: #b86868;
+  --color-rose-soft: #d4a0a0;
+  --color-ink: #4a3535;
+  --color-gold: #c9a66b;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: #fffcfa;
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-rose);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-invitation-container {
+    width: 100%;
+    max-width: 430px;
+    background: #fffcfa;
+    position: relative;
+  }
+
+  .date-banner {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #d4a3a3 14%,
+      #c17373 50%,
+      #d4a3a3 86%,
+      transparent 100%
+    );
+  }
+
+  .card-stack {
+    box-shadow:
+      6px 8px 0 0 color-mix(in srgb, var(--color-rose) 35%, transparent),
+      0 12px 28px rgba(193, 115, 115, 0.18);
+  }
+
+  .outer-dot-pattern {
+    background-image: radial-gradient(#c17373 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
