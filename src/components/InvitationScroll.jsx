@@ -96,7 +96,8 @@ export default function InvitationScroll({ showRest = false }) {
       <img
         src={images.card01}
         alt={`${groom.name} & ${bride.name}`}
-        className="relative z-10 block w-full h-auto"
+        className="relative z-10 block w-full max-w-none"
+        style={{ height: 'auto', aspectRatio: '1200 / 2601' }}
         draggable={false}
       />
 
@@ -172,8 +173,10 @@ export default function InvitationScroll({ showRest = false }) {
           <img
             src={images.card03}
             alt="Thank you"
-            className="relative z-10 block w-full h-auto"
+            className="relative z-10 block w-full max-w-none"
+            style={{ height: 'auto', aspectRatio: '1200 / 2601' }}
           />
+          {/* <div className="h-20" aria-hidden="true" /> */}
         </>
       ) : null}
     </div>

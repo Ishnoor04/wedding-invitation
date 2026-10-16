@@ -47,7 +47,7 @@ export default function MusicToggle({ audio }) {
       onClick={toggle}
       aria-label={playing ? 'Pause shabad' : 'Play shabad'}
       title={playing ? 'Pause shabad' : 'Play shabad'}
-      className="absolute z-[60] w-12 h-12 rounded-full bg-[#C17373] text-white shadow-lg shadow-[#C17373]/40 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 border border-white/25 bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))]"
+      className="fixed z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-[#C17373] text-white shadow-lg shadow-[#C17373]/40 transition-transform hover:scale-105 active:scale-95 bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] sm:absolute"
     >
       {playing ? (
         <Pause className="w-5 h-5 fill-white" />

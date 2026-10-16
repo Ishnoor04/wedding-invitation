@@ -20,18 +20,19 @@
   body,
   #root {
     height: 100%;
-    min-height: 100%;
-    min-height: 100dvh;
+    overflow: hidden;
   }
 
   body {
+    position: fixed;
+    inset: 0;
+    width: 100%;
     margin: 0;
     font-family: var(--font-sans);
     background: #fffcfa;
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none;
   }
 
   ::selection {
@@ -67,16 +68,30 @@
   }
 
   .invitation-scroll {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     touch-action: pan-y;
-    overscroll-behavior-y: contain;
+  }
+
+  .invitation-scroll img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+    user-select: none;
   }
 
   .mobile-invitation-container {
+    position: relative;
     width: 100%;
     max-width: 430px;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
     background: #fffcfa;
-    position: relative;
   }
 
   .date-banner {

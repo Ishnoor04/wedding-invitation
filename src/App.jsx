@@ -20,16 +20,6 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    // Keep document locked; only the invitation frame scrolls (needed on iOS).
-    document.body.style.overflow = 'hidden'
-    document.documentElement.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
-    }
-  }, [])
-
-  useEffect(() => {
     const el = scrollRef.current
     if (!el || opened) return undefined
     el.scrollTop = 0
@@ -61,10 +51,10 @@ export default function App() {
   }
 
   return (
-    <main className="relative w-full h-dvh sm:h-auto sm:min-h-screen bg-[#FFFCFA] flex items-stretch sm:items-center justify-center py-0 sm:py-8 sm:px-4 overflow-hidden">
+    <main className="relative h-full w-full overflow-hidden bg-[#FFFCFA] sm:flex sm:items-center sm:justify-center sm:px-4 sm:py-8">
       <OuterBackdrop />
 
-      <div className="mobile-invitation-container relative z-10 h-dvh sm:h-auto sm:min-h-[844px] sm:max-h-[94vh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15 bg-[#FFFCFA] overflow-hidden flex flex-col">
+      <div className="mobile-invitation-container relative z-10 h-full w-full overflow-hidden bg-[#FFFCFA] sm:h-[min(844px,94dvh)] sm:max-h-[94dvh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15">
         {/* Soft stage behind mini card */}
         {!opened ? (
           <div className="absolute inset-0 pointer-events-none">
@@ -84,8 +74,8 @@ export default function App() {
           ref={scrollRef}
           className={
             opened
-              ? 'invitation-scroll relative z-10 flex-1 min-h-0 overflow-y-auto overscroll-y-contain no-scrollbar'
-              : 'relative z-10 flex-1 min-h-0 overflow-hidden flex flex-col items-center justify-center gap-5 px-5 py-10'
+              ? 'invitation-scroll z-10 no-scrollbar'
+              : 'absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 overflow-hidden px-5 py-10'
           }
         >
           {/* Same card DOM — width animates mini → full (no remount / no flicker) */}
@@ -93,15 +83,14 @@ export default function App() {
             initial={false}
             animate={{
               width: opened ? '100%' : CLOSED_WIDTH,
-              borderRadius: opened ? 0 : 28,
             }}
             transition={{ type: 'spring', stiffness: 260, damping: 32 }}
             className={
               opened
                 ? 'w-full bg-[#FFFCFA]'
-                : 'shrink-0 overflow-hidden bg-[#FFFCFA] shadow-[0_20px_50px_rgba(193,115,115,0.28)] ring-1 ring-[#C17373]/20'
+                : 'shrink-0 overflow-hidden rounded-[28px] bg-[#FFFCFA] shadow-[0_20px_50px_rgba(193,115,115,0.28)] ring-1 ring-[#C17373]/20'
             }
-            style={{ width: opened ? '100%' : CLOSED_WIDTH }}
+            style={{ width: opened ? '100%' : CLOSED_WIDTH, overflow: 'visible' }}
           >
             <InvitationScroll showRest={opened} />
           </motion.div>
