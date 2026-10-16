@@ -60,7 +60,7 @@ export const wedding = {
     {
       city: 'Adelaide',
       title: 'Watna',
-      date: 'Thursday, 29 October 2026',
+      date: 'Thursday, 29th October 2026',
       time: '6:00 PM Onwards',
       venue: '37 Reservoir Road, Hope Valley 5090',
       variant: 'light',
@@ -70,7 +70,7 @@ export const wedding = {
     {
       city: 'Melbourne',
       title: 'Watna & Jago',
-      date: 'Saturday, 31 October 2026',
+      date: 'Saturday, 31st October 2026',
       time: '4:00 PM Onwards',
       venue: '2 Cygnet Street, Tooradin Vic 3980',
       variant: 'solid',
@@ -80,7 +80,7 @@ export const wedding = {
     {
       city: 'Melbourne',
       title: 'Anand Karaj',
-      date: 'Sunday, 1 November 2026',
+      date: 'Sunday, 1st November 2026',
       time: '5:00 AM Onwards',
       venue: 'Jagjeet Mandir, Manks Rd, Koo Wee Rup VIC 3981',
       variant: 'light',

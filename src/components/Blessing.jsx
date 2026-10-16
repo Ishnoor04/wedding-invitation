@@ -40,7 +40,7 @@ export default function Blessing() {
 
           <div className="w-12 h-px bg-[#C17373]/35 mx-auto mb-4" />
 
-          <p className="text-[11px] font-playfair italic text-[#C17373]/85 leading-relaxed">
+          <p className="text-[11px] font-playfair italic text-[#C17373] leading-relaxed">
             &ldquo;{blessing.verseEnglish}&rdquo;
           </p>
         </div>

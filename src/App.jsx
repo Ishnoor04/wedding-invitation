@@ -64,8 +64,8 @@ export default function App() {
               className="absolute inset-0 w-full h-full object-cover opacity-[0.14]"
             />
             <div className="absolute inset-5 border border-[#C17373]/18 rounded-[28px] flex justify-between p-4 text-[#C17373]/60 text-[10px] tracking-widest uppercase">
-              <span className="text-sm font-display normal-case tracking-normal">ੴ</span>
-              <span className="font-semibold">{wedding.weddingDateShort}</span>
+              {/* <span className="text-sm font-display normal-case tracking-normal">ੴ</span>
+              <span className="font-semibold">{wedding.weddingDateShort}</span> */}
             </div>
           </div>
         ) : null}

@@ -139,7 +139,7 @@ export default function InvitationScroll({ showRest = false }) {
                 ))}
               </div>
               <div className="w-14 h-px bg-[#C17373]/35 mx-auto mb-4" />
-              <p className="text-[14px] sm:text-[15px] font-playfair italic text-[#C17373]/85 leading-relaxed px-1">
+              <p className="text-[14px] sm:text-[15px] font-playfair italic text-[#C17373] leading-relaxed px-1 font-medium">
                 &ldquo;{blessing.verseEnglish}&rdquo;
               </p>
             </motion.div>
