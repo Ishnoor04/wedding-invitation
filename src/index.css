@@ -19,7 +19,9 @@
   html,
   body,
   #root {
+    height: 100%;
     min-height: 100%;
+    min-height: 100dvh;
   }
 
   body {
@@ -29,6 +31,7 @@
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
   }
 
   ::selection {
@@ -61,6 +64,12 @@
 
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .invitation-scroll {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior-y: contain;
   }
 
   .mobile-invitation-container {

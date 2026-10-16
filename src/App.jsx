@@ -20,21 +20,20 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return undefined
-
-    if (!opened) {
-      el.scrollTop = 0
-      document.body.style.overflow = 'hidden'
-      return () => {
-        document.body.style.overflow = ''
-      }
-    }
-
-    document.body.style.overflow = ''
+    // Keep document locked; only the invitation frame scrolls (needed on iOS).
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
     }
+  }, [])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el || opened) return undefined
+    el.scrollTop = 0
+    return undefined
   }, [opened])
 
   useEffect(() => {
@@ -62,10 +61,10 @@ export default function App() {
   }
 
   return (
-    <main className="relative w-full min-h-screen bg-[#FFFCFA] flex items-center justify-center py-0 sm:py-8 sm:px-4 overflow-hidden">
+    <main className="relative w-full h-dvh sm:h-auto sm:min-h-screen bg-[#FFFCFA] flex items-stretch sm:items-center justify-center py-0 sm:py-8 sm:px-4 overflow-hidden">
       <OuterBackdrop />
 
-      <div className="mobile-invitation-container relative z-10 min-h-screen sm:min-h-[844px] sm:max-h-[94vh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15 bg-[#FFFCFA] overflow-hidden">
+      <div className="mobile-invitation-container relative z-10 h-dvh sm:h-auto sm:min-h-[844px] sm:max-h-[94vh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15 bg-[#FFFCFA] overflow-hidden flex flex-col">
         {/* Soft stage behind mini card */}
         {!opened ? (
           <div className="absolute inset-0 pointer-events-none">
@@ -85,8 +84,8 @@ export default function App() {
           ref={scrollRef}
           className={
             opened
-              ? 'relative z-10 h-full min-h-screen sm:min-h-[844px] sm:max-h-[94vh] overflow-y-auto no-scrollbar'
-              : 'relative z-10 h-full min-h-screen sm:min-h-[844px] sm:max-h-[94vh] overflow-hidden flex flex-col items-center justify-center gap-5 px-5 py-10'
+              ? 'invitation-scroll relative z-10 flex-1 min-h-0 overflow-y-auto overscroll-y-contain no-scrollbar'
+              : 'relative z-10 flex-1 min-h-0 overflow-hidden flex flex-col items-center justify-center gap-5 px-5 py-10'
           }
         >
           {/* Same card DOM — width animates mini → full (no remount / no flicker) */}
@@ -99,7 +98,7 @@ export default function App() {
             transition={{ type: 'spring', stiffness: 260, damping: 32 }}
             className={
               opened
-                ? 'w-full overflow-hidden bg-[#FFFCFA]'
+                ? 'w-full bg-[#FFFCFA]'
                 : 'shrink-0 overflow-hidden bg-[#FFFCFA] shadow-[0_20px_50px_rgba(193,115,115,0.28)] ring-1 ring-[#C17373]/20'
             }
             style={{ width: opened ? '100%' : CLOSED_WIDTH }}
