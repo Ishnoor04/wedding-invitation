@@ -51,10 +51,10 @@ export default function App() {
   }
 
   return (
-    <main className="relative h-full w-full overflow-hidden bg-[#FFFCFA] sm:flex sm:items-center sm:justify-center sm:px-4 sm:py-8">
+    <main className="relative h-dvh w-full overflow-hidden bg-[#FFFCFA] sm:flex sm:h-auto sm:min-h-screen sm:items-center sm:justify-center sm:px-4 sm:py-8">
       <OuterBackdrop />
 
-      <div className="mobile-invitation-container relative z-10 h-full w-full overflow-hidden bg-[#FFFCFA] sm:h-[min(844px,94dvh)] sm:max-h-[94dvh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15">
+      <div className="mobile-invitation-container relative z-10 flex h-dvh w-full flex-col overflow-hidden bg-[#FFFCFA] sm:h-[min(844px,94dvh)] sm:max-h-[94dvh] sm:rounded-[36px] sm:shadow-[0_25px_80px_rgba(91,65,65,0.18)] sm:ring-8 sm:ring-[#C17373]/15">
         {/* Soft stage behind mini card */}
         {!opened ? (
           <div className="absolute inset-0 pointer-events-none">
@@ -74,8 +74,8 @@ export default function App() {
           ref={scrollRef}
           className={
             opened
-              ? 'invitation-scroll z-10 no-scrollbar'
-              : 'absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 overflow-hidden px-5 py-10'
+              ? 'invitation-scroll relative z-10 min-h-0 flex-1 no-scrollbar'
+              : 'relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-4 overflow-hidden px-5 py-6'
           }
         >
           {/* Same card DOM — width animates mini → full (no remount / no flicker) */}
@@ -88,9 +88,9 @@ export default function App() {
             className={
               opened
                 ? 'w-full bg-[#FFFCFA]'
-                : 'shrink-0 overflow-hidden rounded-[28px] bg-[#FFFCFA] shadow-[0_20px_50px_rgba(193,115,115,0.28)] ring-1 ring-[#C17373]/20'
+                : 'closed-invite-card shrink min-h-0 overflow-hidden rounded-[28px] bg-[#FFFCFA] shadow-[0_20px_50px_rgba(193,115,115,0.28)] ring-1 ring-[#C17373]/20'
             }
-            style={{ width: opened ? '100%' : CLOSED_WIDTH, overflow: 'visible' }}
+            style={{ width: opened ? '100%' : CLOSED_WIDTH }}
           >
             <InvitationScroll showRest={opened} />
           </motion.div>
