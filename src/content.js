@@ -89,6 +89,27 @@ export const wedding = {
     },
   ],
 
+  rsvp: {
+    badge: 'Kindly Reply',
+    title: 'RSVP',
+    subtitle: 'Help us plan for Thursday & Saturday celebrations',
+    occasionsHint: 'Select one or both — guest counts can differ',
+    guestsHint: 'Including yourself',
+    submitLabel: 'Confirm RSVP',
+    successTitle: 'Thank you',
+    successMessage: 'Your response has been received. We look forward to celebrating with you.',
+    occasions: {
+      thursday: {
+        label: 'Thursday Watna',
+        detail: 'Adelaide · 29 Oct · 6:00 PM',
+      },
+      saturday: {
+        label: 'Saturday Watna & Jago',
+        detail: 'Melbourne · 31 Oct · 4:00 PM',
+      },
+    },
+  },
+
   thankYou: {
     title: 'Thank You',
     message:

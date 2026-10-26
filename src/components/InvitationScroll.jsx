@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Calendar, Clock, MapPin, Navigation } from 'lucide-react'
 import { wedding } from '../content'
 import Countdown from './Countdown'
+import Rsvp from './Rsvp'
 
 function FloralRule({ images, className = '' }) {
   return (
@@ -169,6 +170,8 @@ export default function InvitationScroll({ showRest = false }) {
               ))}
             </div>
           </section>
+
+          <Rsvp />
 
           <img
             src={images.card03}
